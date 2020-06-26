@@ -1,0 +1,11 @@
+var dCmds = newMenu("Kymo Menu Tool",
+  newArray("Join"));
+  
+macro "Join Action Tool - C037T0b11J" {
+   run("Join molecules", "");
+}
+
+macro "Find Molecules Action Tool - C037T0b11F" {
+   run("Find Molecules", "");
+}
+
