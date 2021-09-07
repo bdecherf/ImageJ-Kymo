@@ -100,7 +100,7 @@ public class ComputeDuration extends AbstractOp {
             table.incrementCounter();
             table.setLabel(roi.getName(), numMols);
 			table.addValue("duration", rect.getHeight());
-			table.addValue("Length", roi.getLength());
+			table.addValue("Length (x)", roi.getFloatWidth());
 		}
 		System.out.println("Found " + numMols + " molecules");
 
