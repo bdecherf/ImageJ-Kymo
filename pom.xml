@@ -14,7 +14,7 @@
 
 	<groupId>fr.benoit</groupId>
 	<artifactId>kymo_plugin</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 
 	<name>Kymo Plugin</name>
 	<description>Find molecules.</description>
@@ -71,6 +71,7 @@
 		<license.licenseName>unlicense</license.licenseName>
 		<license.copyrightOwners>N/A</license.copyrightOwners>
 		<license.projectName>ImageJ software for multidimensional image processing and analysis.</license.projectName>
+		<scijava.jvm.build.version>(1.6.0,)</scijava.jvm.build.version>
 	</properties>
 
 	<repositories>
@@ -94,27 +95,4 @@
 		    <artifactId>imglib2-ij</artifactId>
 		</dependency>
 	</dependencies>
-		  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-enforcer-plugin</artifactId>
-        <executions>
-          <execution>
-                    <id>enforce-versions</id>
-            <goals>
-              <goal>enforce</goal>
-            </goals>
-            <configuration>
-              <rules>
-                <requireJavaVersion>
-                  <version>(1.6.0,)</version>
-                </requireJavaVersion>
-              </rules>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
 </project>

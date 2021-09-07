@@ -86,6 +86,7 @@ import io.scif.jj2000.j2k.roi.encoder.ROIMaskGenerator;
 public class FindSegments extends AbstractOp {
 	static final int MAX_Y_BLANK = 4;
 	static final int MAX_X_BLANK = 3;
+	static final int MIN_Y_LEN = 3;
 	
 	
     @Parameter
@@ -306,7 +307,7 @@ public class FindSegments extends AbstractOp {
         
 		for(Molecule m: molecules) {
 			
-			if(m.points.size() > 10 && m.isBiggest()) {
+			if(m.points.size() > MIN_Y_LEN && m.isBiggest()) {
 				numMols++;
 				System.out.println("New molecule");
 	            table.incrementCounter();
@@ -325,7 +326,8 @@ public class FindSegments extends AbstractOp {
 					((UnsignedByteType)r.get()).set(255);
 				}
 				table.addValue("duration", polygon.getBounds().getHeight());//m.points.get(m.points.size()-1).y - m.points.get(0).y);
-				table.addValue("Length", polygon.getLength(true));
+				//table.addValue("Length", polygon.getLength(true));
+				table.addValue("Length(x)", polygon.getBounds().getWidth());
 				PolygonRoi roi = new PolygonRoi(polygon, Roi.POLYLINE);
 				roi.setName("Molecule "+polygon.getBounds().x + "x"+polygon.getBounds().y);
 				roiManager.addRoi(roi);
